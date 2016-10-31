@@ -7,7 +7,27 @@
         <link rel="stylesheet" href="../css/settingsPopover.css">
     </head>
     <body>
-        <h1>Just Do It ! {{ test }}</h1>
+        <div id="settings">
+            <h1>Just Do It !</h1>
+
+            <websites-list :websites="websites"></websites-list>
+        </div>
+
+        <template id="websites-list-template">
+            <div class="websites-list">
+                <ul class="websites-list">
+                    <li v-for="(website, index) in websites">
+                        <span class="delete-button" @click="remove(index)">&times;</span>
+                        {{ website }}
+                    </lI>
+                </ul>
+
+                <form>
+                    <input type="text" placeholder="Add a website... (e.g. : facebook.com)">
+                    <input type="submit" value="+">
+                </form>
+            </div>
+        </template>
 
         <script src="../js/vue.js"></script>
         <script src="../js/settingsPopover.js"></script>
