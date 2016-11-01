@@ -22,8 +22,8 @@
                     </lI>
                 </ul>
 
-                <form>
-                    <input type="text" placeholder="Add a website... (e.g. : facebook.com)">
+                <form @submit.prevent="addWebsite">
+                    <input type="text" v-model="addedWebsite" placeholder="Add a website... (e.g. : facebook.com)">
                     <input type="submit" value="+">
                 </form>
             </div>
