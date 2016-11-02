@@ -1,0 +1,49 @@
+
+body {
+    margin: none;
+    font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+h1 {
+    text-align: center;
+}
+
+.blocked {
+    margin: 0;
+    padding-top: 2vw;
+    background: #fff;
+    position: absolute;
+
+    top:0px;
+    bottom: 0px;
+    right: 0px;
+    left:0px;
+}
+
+.blocked * {
+    display: block;
+    margin: 0 auto;
+}
+
+.blocked h1 {
+    font-size: 13vw;
+    line-height: 1;
+    margin-top: 3vh;
+}
+
+.blocked p {
+    font-size: 3vw;
+    text-align: center;
+    width: 70%;
+    text-transform: uppercase;
+}
+
+.blocked img {
+    border: none;
+    height: 39vw;
+    width: 70%;
+    -webkit-user-drag: none;
+}

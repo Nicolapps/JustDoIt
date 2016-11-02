@@ -18,6 +18,8 @@
 	<string>1</string>
 	<key>Chrome</key>
 	<dict>
+		<key>Global Page</key>
+		<string>html/global.html</string>
 		<key>Popovers</key>
 		<array>
 			<dict>
@@ -51,6 +53,16 @@
 			</dict>
 		</array>
 	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>js/onPageLoading.js</string>
+			</array>
+		</dict>
+	</dict>
 	<key>Description</key>
 	<string>This extension prevents websites from wasting your time.</string>
 	<key>DeveloperIdentifier</key>
@@ -61,6 +73,8 @@
 	<dict>
 		<key>Website Access</key>
 		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
 			<key>Level</key>
 			<string>All</string>
 		</dict>

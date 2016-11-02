@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Just Do It !</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+
+            safari.application.addEventListener('message', function(e){ // When a website is loaded
+
+                // Load blocked websites from Safari settings
+                var blocked = eval(safari.extension.settings.blockedWebsites);
+
+                if(blocked.indexOf(e.message) > -1){ // If the website is blocked
+                    e.target.page.dispatchMessage('blocked', '');
+                }
+
+            }, false);
+
+        </script>
+	</body>
+</html>
