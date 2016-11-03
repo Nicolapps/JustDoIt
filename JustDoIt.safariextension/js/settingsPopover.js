@@ -2,10 +2,23 @@
 // Fetch the blocked websites list from Safari settings
 var blockedWebsites = eval(safari.extension.settings.blockedWebsites);
 
+Vue.component('enable-extension', {
+    data: function(){
+        return {
+            enabled: safari.extension.settings.isEnabled
+        }
+    },
+
+    methods: {
+        toggleEnabled: function() {
+            this.enabled = ! this.enabled;
+            safari.extension.settings.isEnabled = this.enabled;
+        }
+    }
+});
+
 Vue.component('websites-list', {
     props: ['websites'],
-
-    template: '#websites-list-template',
 
     data: function(){
         return {
@@ -34,7 +47,10 @@ Vue.component('websites-list', {
 new Vue({
     el: '#settings',
 
-    data: {
-        websites: blockedWebsites
+    data: function() {
+        return {
+            websites: blockedWebsites,
+            isEnabled: safari.extension.settings.isEnabled
+        }
     }
 });

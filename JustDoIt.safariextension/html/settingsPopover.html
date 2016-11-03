@@ -10,24 +10,37 @@
         <div id="settings">
             <h1>Just Do It !</h1>
 
-            <websites-list :websites="websites"></websites-list>
+            <enable-extension
+                inline-template
+            >
+                <div
+                    class="enable-extension"
+                    @click="toggleEnabled"
+                    :class="{ enabled: enabled }"
+                >
+                    Block the following websites :
+                </div>
+            </enable-extension>
+
+            <websites-list
+                :websites="websites"
+                inline-template
+            >
+                <div class="websites-list">
+                    <ul class="websites-list">
+                        <li v-for="(website, index) in websites">
+                            <span class="delete-button" @click="remove(index)">&times;</span>
+                            {{ website }}
+                        </lI>
+                    </ul>
+
+                    <form @submit.prevent="addWebsite">
+                        <input type="text" v-model="addedWebsite" placeholder="Add a website... (e.g. : facebook.com)">
+                        <input type="submit" value="+">
+                    </form>
+                </div>
+            </websites-list>
         </div>
-
-        <template id="websites-list-template">
-            <div class="websites-list">
-                <ul class="websites-list">
-                    <li v-for="(website, index) in websites">
-                        <span class="delete-button" @click="remove(index)">&times;</span>
-                        {{ website }}
-                    </lI>
-                </ul>
-
-                <form @submit.prevent="addWebsite">
-                    <input type="text" v-model="addedWebsite" placeholder="Add a website... (e.g. : facebook.com)">
-                    <input type="submit" value="+">
-                </form>
-            </div>
-        </template>
 
         <script src="../js/vue.js"></script>
         <script src="../js/settingsPopover.js"></script>

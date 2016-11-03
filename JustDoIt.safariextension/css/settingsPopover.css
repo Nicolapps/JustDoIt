@@ -17,6 +17,28 @@ h2 {
     margin: 0;
 }
 
+.enable-extension {
+    padding: 45px 10px 10px 10px;
+    margin: 5px;
+
+    background-color: #000;
+    background-image: url(../img/checkbox.svg);
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    background-size: 30px;
+
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.enable-extension.enabled {
+    background-image: url(../img/checkbox_enabled.svg);
+}
+
 .websites-list ul {
     margin: 0;
 
@@ -59,7 +81,8 @@ h2 {
 
 .websites-list input[type="text"] {
     width: 89%;
-    height: 100%;
+    height: 20px;
+    line-height: 1.5;
 }
 
 .website-list input[type="submit"] {

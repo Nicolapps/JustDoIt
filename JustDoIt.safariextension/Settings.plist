@@ -12,5 +12,15 @@
 		<key>Type</key>
 		<string>Hidden</string>
 	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>true</string>
+		<key>Key</key>
+		<string>isEnabled</string>
+		<key>Title</key>
+		<string>isEnabled</string>
+		<key>Type</key>
+		<string>Hidden</string>
+	</dict>
 </array>
 </plist>

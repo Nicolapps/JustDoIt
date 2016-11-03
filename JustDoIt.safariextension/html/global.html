@@ -9,15 +9,15 @@
 
             safari.application.addEventListener('message', function(e){ // When a website is loaded
 
-                // Load blocked websites from Safari settings
+                // Load Safari settings
                 var blocked = eval(safari.extension.settings.blockedWebsites);
+				var isEnabled = safari.extension.settings.isEnabled;
 
-                if(blocked.indexOf(e.message) > -1){ // If the website is blocked
+                if(isEnabled && blocked.indexOf(e.message) > -1){ // If the website is blocked
                     e.target.page.dispatchMessage('blocked', '');
                 }
 
             }, false);
-
         </script>
 	</body>
 </html>
