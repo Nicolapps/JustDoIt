@@ -59,6 +59,7 @@ h2 {
 
 .websites-list input[type="text"] {
     width: 89%;
+    height: 100%;
 }
 
 .website-list input[type="submit"] {
