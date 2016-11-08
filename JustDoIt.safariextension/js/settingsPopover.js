@@ -45,6 +45,11 @@ Vue.component('websites-list', {
 
             website = this.removeSubDomains(website);
 
+            if(this.alreadyInList(website, this.websites)) {
+                this.error = "This website is already blocked.";
+                return;
+            }
+
             this.websites.push(website);
             this.addedWebsite = '';
             this.updateSafariSettings();
@@ -56,6 +61,10 @@ Vue.component('websites-list', {
 
         removeSubDomains: function(website) {
             return /([a-z]+\.[a-z]+)$/.exec(website)[0];
+        },
+
+        alreadyInList: function(website, list) {
+            return list.indexOf(website) !== -1;
         },
 
         updateSafariSettings: function() {
