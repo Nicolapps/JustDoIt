@@ -91,3 +91,9 @@ h2 {
     font-weight: bolder;
     text-align: right;
 }
+
+.error-message {
+    margin: 5px;
+    font-weight: bold;
+    color: #B71C1C;
+}

@@ -29,15 +29,21 @@
                 <div class="websites-list">
                     <ul class="websites-list">
                         <li v-for="(website, index) in websites">
-                            <span class="delete-button" @click="remove(index)">&times;</span>
+                            <span class="delete-button" @click="removeWebsite(index)">&times;</span>
                             {{ website }}
                         </lI>
                     </ul>
 
                     <form @submit.prevent="addWebsite">
-                        <input type="text" v-model="addedWebsite" placeholder="Add a website... (e.g. : facebook.com)">
+                        <input
+                            type="text"
+                            v-model="addedWebsite"
+                            placeholder="Add a website... (e.g. : facebook.com)"
+                        >
                         <input type="submit" value="+">
                     </form>
+
+                    <p class="error-message">{{ error }}</p>
                 </div>
             </websites-list>
         </div>

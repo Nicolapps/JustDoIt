@@ -22,24 +22,50 @@ Vue.component('websites-list', {
 
     data: function(){
         return {
-            'addedWebsite': ''
+            'addedWebsite': '',
+            'error': ''
         }
     },
 
     methods: {
-        addWebsite: function() {
-            this.websites.push(this.addedWebsite);
-            this.addedWebsite = '';
-            this.updateSafariSettings();
-        },
 
-        remove: function(index) {
+        removeWebsite: function(index) {
             this.websites.splice(index, 1);
             this.updateSafariSettings();
         },
 
+        addWebsite: function() {
+
+            var website = this.addedWebsite.toLowerCase();
+
+            if(! this.isDomainValid(website)) {
+                this.error = "Please enter a valid domain name.";
+                return;
+            }
+
+            website = this.removeSubDomains(website);
+
+            this.websites.push(website);
+            this.addedWebsite = '';
+            this.updateSafariSettings();
+        },
+
+        isDomainValid: function(domain) {
+            return domain.match(/^[a-z][a-z.]+\.[a-z]+$/);
+        },
+
+        removeSubDomains: function(website) {
+            return /([a-z]+\.[a-z]+)$/.exec(website)[0];
+        },
+
         updateSafariSettings: function() {
             safari.extension.settings.blockedWebsites = JSON.stringify(this.websites);
+        }
+    },
+
+    watch: {
+        'addedWebsite': function() {
+            this.error = '';
         }
     }
 });
