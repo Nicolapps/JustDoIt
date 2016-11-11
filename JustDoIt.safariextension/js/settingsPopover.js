@@ -38,6 +38,8 @@ Vue.component('websites-list', {
 
             var website = this.addedWebsite.toLowerCase();
 
+            website = this.removeProtocol(website);
+
             if(! this.isDomainValid(website)) {
                 this.error = "Please enter a valid domain name.";
                 return;
@@ -57,6 +59,10 @@ Vue.component('websites-list', {
 
         isDomainValid: function(domain) {
             return domain.match(/^[a-z][a-z.]+\.[a-z]+$/);
+        },
+
+        removeProtocol: function(url) {
+            return url.replace(/https?:\/\/(.+)/, "$1");
         },
 
         removeSubDomains: function(website) {
