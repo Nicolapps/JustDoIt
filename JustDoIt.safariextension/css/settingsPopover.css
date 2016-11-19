@@ -44,6 +44,9 @@ h2 {
 
     list-style-type: none;
     padding-left: 0;
+
+    max-height: 280px;
+    overflow-y: auto;
 }
 
 .websites-list li {
